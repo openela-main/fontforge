@@ -1,0 +1,27 @@
+diff -urN fontforge-20170731.old/fontforge/bitmapchar.c fontforge-20170731/fontforge/bitmapchar.c
+--- fontforge-20170731.old/fontforge/bitmapchar.c 2021-03-28 00:05:56.177612544 -0500
++++ fontforge-20170731/fontforge/bitmapchar.c 2021-03-28 00:12:04.183707915 -0500
+@@ -351,6 +351,7 @@
+     char *bpt, *pt;
+     char buffer2[300];
+ 
++    bpt = NULL;
+     for ( bdf=sf->bitmaps; bdf!=NULL; bdf=bdf->next ) {
+ 	BDFPropReplace(bdf,"FONT_NAME", sf->fontname);
+ 	BDFPropReplace(bdf,"FAMILY_NAME", sf->familyname);
+diff -urN fontforge-20170731.old/fontforge/bitmapchar.c fontforge-20170731/fontforge/bitmapchar.c
+--- fontforge-20170731.old/fontforge/bitmapchar.c 2021-03-28 00:05:56.177612544 -0500
++++ fontforge-20170731/fontforge/bitmapchar.c 2021-03-28 00:12:04.183707915 -0500
+@@ -371,8 +372,9 @@
+ 	    }
+ 	}
+     }
+-    free(bpt);
+-    free(pt);
++    if ( bpt != NULL ) {
++        free(bpt);
++    }
+ }
+ 
+ BDFProperties *BdfPropsCopy(BDFProperties *props, int cnt ) {
+
