@@ -1,0 +1,27 @@
+From ee14a6389d19e2f45219134058e07f10585fa6d3 Mon Sep 17 00:00:00 2001
+From: Jeremy Tan <jtanx@outlook.com>
+Date: Thu, 2 Apr 2020 18:03:47 +0800
+Subject: [PATCH] Call gdk_set_allowed_backends before gdk_init
+
+Fixes #4247
+---
+ fontforgeexe/startui.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/fontforgeexe/startui.c b/fontforgeexe/startui.c
+index 06f5200a4..114bb7fb6 100644
+--- a/fontforgeexe/startui.c
++++ b/fontforgeexe/startui.c
+@@ -1182,8 +1182,8 @@ int fontforge_main( int argc, char **argv ) {
+ #endif
+     }
+ #ifdef FONTFORGE_CAN_USE_GDK
+-    gdk_init(&argc, &argv);
+     gdk_set_allowed_backends("win32,quartz,x11");
++    gdk_init(&argc, &argv);
+ #endif
+     ensureDotFontForgeIsSetup();
+ #if defined(__MINGW32__) && !defined(_NO_LIBCAIRO)
+-- 
+2.26.0
+
