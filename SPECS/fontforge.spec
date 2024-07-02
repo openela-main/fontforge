@@ -3,7 +3,7 @@
 
 Name:           fontforge
 Version:        20200314
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        Outline and bitmap font editor
 
 License:        GPLv3+
@@ -14,6 +14,9 @@ Source0:        https://github.com/fontforge/%{name}/archive/%{gittag0}.tar.gz#/
 Patch0:         fontforge-20200314-Call-gdk_set_allowed_backends-before-gdk_init.patch
 # https://github.com/fontforge/fontforge/pull/4257
 Patch1:         fontforge-20200314-minor-backward-compatible-sphinx-changes.patch
+# https://github.com/fontforge/fontforge/pull/5367
+# Fixes CVE-2024-25081 and CVE-2024-25082
+Patch2:         Fix_Splinefont_shell_invocation.patch
 
 Requires:       xdg-utils
 Requires:       autotrace
@@ -69,8 +72,9 @@ This package contains documentation files for %{name}.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
+%patch -P 0 -p1
+%patch -P 1 -p1
+%patch -P 2 -p1
 
 # Remove tests that requires Internet access
 sed -i '45d;83d;101d;102d;114d;115d;125d' tests/CMakeLists.txt
@@ -138,6 +142,10 @@ popd
 %doc %{_pkgdocdir}
 
 %changelog
+* Thu Apr 04 2024 Parag Nemade <pnemade AT redhat DOT com> - 20200314-6
+- Resolves: RHEL-26715 - fontforge: various flaws
+  (CVE-2024-25081 and CVE-2024-25082)
+
 * Mon Dec 14 2020 Parag Nemade <pnemade AT redhat DOT com> - 20200314-5
 - The %%find_lang should run as part of %%install only
 
