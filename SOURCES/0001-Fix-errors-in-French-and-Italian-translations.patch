@@ -1,0 +1,180 @@
+diff -urN fontforge-20201107.old/po/fr.po fontforge-20201107/po/fr.po
+--- fontforge-20201107.old/po/fr.po	2020-11-08 02:12:58.000000000 +0530
++++ fontforge-20201107/po/fr.po	2024-04-02 16:30:42.942148536 +0530
+@@ -280,8 +280,8 @@
+ "referred to.\n"
+ "It will not be copied."
+ msgstr ""
+-"Vous essayer de coller une référence vers %1$s dans %2$hs.\n"
+-"Mais %1$hs n'existe pas dans cette fonte, et FontForge ne trouve pas le "
++"Vous essayer de coller une référence vers %1$s dans %2$s.\n"
++"Mais %1$s n'existe pas dans cette fonte, et FontForge ne trouve pas le "
+ "glyphe auquel il se référait.\n"
+ "Le glyphe ne sera pas copié."
+ 
+@@ -303,8 +303,8 @@
+ "But %1$s does not exist in this font.\n"
+ "Would you like to copy the original splines (or delete the reference)?"
+ msgstr ""
+-"Vous essayer de coller une référence vers %1$s dans %2$hs.\n"
+-"Mais %1$hs n'existe pas dans cette fonte.\n"
++"Vous essayer de coller une référence vers %1$s dans %2$s.\n"
++"Mais %1$s n'existe pas dans cette fonte.\n"
+ "Voulez vous copier le contour d'origine (ou supprimer la référence)?"
+ 
+ msgid "Anchor Lost"
+@@ -322,7 +322,7 @@
+ 
+ #, c-format
+ msgid "There is already an anchor point named %1$.40s in %2$.40s."
+-msgstr "Il y a déjà une ancre appelée %1$.40s dans %2$.40hs."
++msgstr "Il y a déjà une ancre appelée %1$.40s dans %2$.40s."
+ 
+ msgid "Different Fonts"
+ msgstr "Pas la même fonte"
+@@ -497,8 +497,8 @@
+ "been able to find is %1$.20s-%2$.20s-%4$d.\n"
+ "Shall I use that or let you search?"
+ msgstr ""
+-"Cette fonte est basée sur le jeu de caractères %1$.20s-%2$.20hs-%3$d, mais "
+-"ce que j'ai trouvé de mieux c'est %1$.20hs-%2$.20hs-%4$d.\n"
++"Cette fonte est basée sur le jeu de caractères %1$.20s-%2$.20s-%3$d, mais "
++"ce que j'ai trouvé de mieux c'est %1$.20s-%2$.20s-%4$d.\n"
+ "Devrais-je utiliser cette valeur ou préférez vous chercher ?"
+ 
+ msgid "Use CID Map"
+@@ -1245,7 +1245,7 @@
+ "Reverting the file will lose those changes.\n"
+ "Is that what you want?"
+ msgstr ""
+-"La fonte %1$.40s dans le fichier %2$.40hs a été modifiée.\n"
++"La fonte %1$.40s dans le fichier %2$.40s a été modifiée.\n"
+ "Revenir vous fera perdre toutes les modifications.\n"
+ "Voulez vous vraiment revenir ?"
+ 
+@@ -4469,7 +4469,7 @@
+ "The fonts %1$.30s and %2$.30s have a different number of glyphs or different "
+ "encodings"
+ msgstr ""
+-"Les fontes %1$.30s et %2$.30hs n'ont pas le même nombre de glyphes ou des "
++"Les fontes %1$.30s et %2$.30s n'ont pas le même nombre de glyphes ou des "
+ "codages différents"
+ 
+ #, c-format
+@@ -4477,7 +4477,7 @@
+ "The fonts %1$.30s and %2$.30s use different types of splines (one quadratic, "
+ "one cubic)"
+ msgstr ""
+-"Les fontes %1$.30s et %2$.30hs utilisent des courbes de Bézier d'ordres "
++"Les fontes %1$.30s et %2$.30s utilisent des courbes de Bézier d'ordres "
+ "différents (quadratique et cubique)"
+ 
+ #, c-format
+@@ -4530,8 +4530,8 @@
+ "The glyph %1$.30s in font %2$.30s has a different number of references than "
+ "in %3$.30s"
+ msgstr ""
+-"Le glyphe %1$.30s de la fonte %2$.30hs a un nombre de références différent "
+-"dans %3$.30hs"
++"Le glyphe %1$.30s de la fonte %2$.30s a un nombre de références différent "
++"dans %3$.30s"
+ 
+ #, c-format
+ msgid ""
+@@ -4571,8 +4571,8 @@
+ "The glyph %1$.30s in font %2$.30s has a different hint mask on its contours "
+ "than in %3$.30s"
+ msgstr ""
+-"Le glyphe %1$.30s dans la police %2$.30hs a un masque de hints différent que "
+-"dans %3$.30hs"
++"Le glyphe %1$.30s dans la police %2$.30s a un masque de hints différent que "
++"dans %3$.30s"
+ 
+ #, c-format
+ msgid ""
+@@ -8025,7 +8025,7 @@
+ #, c-format
+ msgid "The outlines of glyph %2$.30s were not found in the font %1$.60s"
+ msgstr ""
+-"Le contours du glyphe %2$.30s n'ont pas été trouvés dans la police %1$.60hs"
++"Le contours du glyphe %2$.30s n'ont pas été trouvés dans la police %1$.60s"
+ 
+ msgid "Correcting References"
+ msgstr "Correction des références"
+@@ -10455,7 +10455,7 @@
+ #. GT: $4 is the font name
+ #, c-format
+ msgid "%1$.80s at %2$d size %3$d from %4$.80s"
+-msgstr "%1$.80s (%2$d) taille %3$d de %4$.80hs"
++msgstr "%1$.80s (%2$d) taille %3$d de %4$.80s"
+ 
+ msgid "Set Width..."
+ msgstr "Définir chasse..."
+@@ -11984,7 +11984,7 @@
+ #. GT: $4 is the changed flag ('*' for the changed items)
+ #, c-format
+ msgid "%1$.80s at %2$d from %3$.90s%4$s"
+-msgstr "%1$.80s à %2$d de %3$.90hs%4$s"
++msgstr "%1$.80s à %2$d de %3$.90s%4$s"
+ 
+ msgid ""
+ "This glyph should display spiro points, but unfortunately this version of "
+@@ -23093,7 +23093,7 @@
+ "with a 0 offset for this combination. Would you like to alter this kerning "
+ "class entry (or create a kerning pair for just these two glyphs)?"
+ msgstr ""
+-"Cette paire de crénage (%.20s et %.20hs) est dans une classe de crénage\n"
++"Cette paire de crénage (%.20s et %.20s) est dans une classe de crénage\n"
+ "avec un déplacement de 0 pour cette combinaison. Voulez-vous modifier cette "
+ "partie\n"
+ "de la classe de crénage (ou créer une nouvelle paire rien que pour ces 2 "
+@@ -26890,7 +26890,7 @@
+ "not exist in the new font.\n"
+ "Should I remove the reference?"
+ msgstr ""
+-"Dans %1$s du dialogue de recherche il y a une référence vers %2$.20hs qui "
++"Dans %1$s du dialogue de recherche il y a une référence vers %2$.20s qui "
+ "n'existe pas dans la nouvelle fonte.\n"
+ "Faut-il supprimer la référence ?"
+ 
+diff -urN fontforge-20201107.old/po/it.po fontforge-20201107/po/it.po
+--- fontforge-20201107.old/po/it.po	2020-11-08 02:12:58.000000000 +0530
++++ fontforge-20201107/po/it.po	2024-04-02 16:29:54.500334426 +0530
+@@ -503,8 +503,8 @@
+ "been able to find is %1$.20s-%2$.20s-%4$d.\n"
+ "Shall I use that or let you search?"
+ msgstr ""
+-"Questo font è basato sulla codifica di caratteri %1$.20s-%2$.20hs-%3$d, ma "
+-"il migliore che io abbia trovato è %1$.20hs-%2$.20hs-%4$d.\n"
++"Questo font è basato sulla codifica di caratteri %1$.20s-%2$.20s-%3$d, ma "
++"il migliore che io abbia trovato è %1$.20s-%2$.20s-%4$d.\n"
+ "Devo usare questo valore o preferisci cercare tu stesso?"
+ 
+ msgid "Use CID Map"
+@@ -1196,7 +1196,7 @@
+ "Reverting the file will lose those changes.\n"
+ "Is that what you want?"
+ msgstr ""
+-"Il font %1$.40s nel file %2$.40hs è stato modificato.\n"
++"Il font %1$.40s nel file %2$.40s è stato modificato.\n"
+ "Ripristinando il file perderai tutte le modifiche.\n"
+ "È quello che vuoi fare?"
+ 
+@@ -4233,7 +4233,7 @@
+ "The glyph %1$.30s has a different number of contours in font %2$.30s than in "
+ "%3$.30s"
+ msgstr ""
+-"Il glifo %1$.30s ha un diverso numero di contorni nel font %2$.30hs rispetto "
++"Il glifo %1$.30s ha un diverso numero di contorni nel font %2$.30s rispetto "
+ "a %3$.30s"
+ 
+ #, c-format
+@@ -24660,7 +24660,7 @@
+ 
+ #, c-format
+ msgid ""
+-"The %1$s in the search dialog contains a reference to %2$.20hs which does "
++"The %1$s in the search dialog contains a reference to %2$.20s which does "
+ "not exist in the new font.\n"
+ "Should I remove the reference?"
+ msgstr ""

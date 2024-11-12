@@ -2,12 +2,18 @@
 
 Name:           fontforge
 Version:        20201107
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        Outline and bitmap font editor
 
 License:        GPLv3+
 URL:            http://fontforge.github.io/
 Source0:        https://github.com/fontforge/%{name}/archive/%{version}.tar.gz#/%{name}-%{version}.tar.gz
+
+# Fix translations with gettext-0.22, https://github.com/fontforge/fontforge/pull/5257
+Patch0:         0001-Fix-errors-in-French-and-Italian-translations.patch
+# https://github.com/fontforge/fontforge/pull/5367
+# Fixes CVE-2024-25081 and CVE-2024-25082
+Patch1:         https://patch-diff.githubusercontent.com/raw/fontforge/fontforge/pull/5367.patch#/Fix_Splinefont_shell_invocation.patch
 
 Requires:       xdg-utils
 Requires:       autotrace
@@ -68,6 +74,8 @@ This package contains documentation files for %{name}.
 
 %prep
 %setup -q
+%patch -P 0 -p1
+%patch -P 1 -p1
 
 # Remove tests that requires Internet access
 sed -i '45d;83d;101d;102d;114d;115d;127d' tests/CMakeLists.txt
@@ -127,6 +135,9 @@ popd
 %doc %{_pkgdocdir}
 
 %changelog
+* Tue Apr 02 2024 Parag Nemade <pnemade AT redhat DOT com> - 20201107-6
+- Resolves: RHEL-26716 - CVE-2024-25081 and CVE-2024-25082 fontforge: various flaws
+
 * Mon Aug 09 2021 Mohan Boddu <mboddu@redhat.com>
 - Rebuilt for IMA sigs, glibc 2.34, aarch64 flags
   Related: rhbz#1991688
