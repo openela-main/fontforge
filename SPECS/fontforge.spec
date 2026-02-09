@@ -2,7 +2,7 @@
 
 Name:           fontforge
 Version:        20230101
-Release:        13%{?dist}
+Release:        14%{?dist}
 Summary:        Outline and bitmap font editor
 
 License:        GPL-3.0-or-later
@@ -13,6 +13,18 @@ Patch0:         0001-Fix-errors-in-French-and-Italian-translations.patch
 # https://github.com/fontforge/fontforge/pull/5367
 # Fixes CVE-2024-25081 and CVE-2024-25082
 Patch1:         https://patch-diff.githubusercontent.com/raw/fontforge/fontforge/pull/5367.patch#/Fix_Splinefont_shell_invocation.patch
+# CVE-2025-15279 https://github.com/fontforge/fontforge/pull/5720
+# https://sourceforge.net/p/fontforge/patches/32/
+Patch2:         https://patch-diff.githubusercontent.com/raw/fontforge/fontforge/pull/5720.patch
+# CVE-2025-15275 https://github.com/fontforge/fontforge/pull/5721
+# https://sourceforge.net/p/fontforge/patches/37/
+Patch3:          https://patch-diff.githubusercontent.com/raw/fontforge/fontforge/pull/5721.patch
+# CVE-2025-15269 https://github.com/fontforge/fontforge/pull/5722
+# https://sourceforge.net/p/fontforge/patches/40/
+Patch4:         https://patch-diff.githubusercontent.com/raw/fontforge/fontforge/pull/5722.patch
+# CVE-2025-15279 https://github.com/fontforge/fontforge/pull/5723
+# https://sourceforge.net/p/fontforge/patches/32/
+Patch5:         https://patch-diff.githubusercontent.com/raw/fontforge/fontforge/pull/5723.patch
 
 Requires:       xdg-utils
 Requires:       (autotrace or potrace)
@@ -71,13 +83,10 @@ This package contains documentation files for %{name}.
 
 
 %prep
-%setup -q
-%patch -P 0 -p1
-%patch -P 1 -p1
+%autosetup -p1
 
 # Remove tests that requires Internet access
 sed -i '45d;82d;101d;127d' tests/CMakeLists.txt
-
 
 %build
 export CFLAGS="%{optflags} -fno-strict-aliasing"
@@ -129,6 +138,14 @@ popd
 %doc %{_pkgdocdir}
 
 %changelog
+* Tue Jan 27 2026 Parag Nemade <pnemade AT redhat DOT com> - 20230101-14
+- Resolves: RHEL-138159
+  CVE-2025-15279 GUtils BMP File Parsing Heap-based Buffer Overflow
+- Resolves: RHEL-138144
+  CVE-2025-15275 SFD File Parsing Heap-based Buffer Overflow
+- Resolves: RHEL-138126
+  CVE-2025-15269 SFD File Parsing Use-After-Free
+
 * Tue Oct 29 2024 Troy Dawson <tdawson@redhat.com> - 20230101-13
 - Bump release for October 2024 mass rebuild:
   Resolves: RHEL-64018
