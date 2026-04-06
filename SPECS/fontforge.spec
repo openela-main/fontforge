@@ -2,7 +2,7 @@
 
 Name:           fontforge
 Version:        20230101
-Release:        14%{?dist}
+Release:        15%{?dist}
 Summary:        Outline and bitmap font editor
 
 License:        GPL-3.0-or-later
@@ -25,6 +25,9 @@ Patch4:         https://patch-diff.githubusercontent.com/raw/fontforge/fontforge
 # CVE-2025-15279 https://github.com/fontforge/fontforge/pull/5723
 # https://sourceforge.net/p/fontforge/patches/32/
 Patch5:         https://patch-diff.githubusercontent.com/raw/fontforge/fontforge/pull/5723.patch
+# CVE-2025-15270 https://github.com/fontforge/fontforge/pull/5743
+# https://sourceforge.net/p/fontforge/patches/41/
+Patch6:         https://patch-diff.githubusercontent.com/raw/fontforge/fontforge/pull/5743.patch
 
 Requires:       xdg-utils
 Requires:       (autotrace or potrace)
@@ -138,6 +141,10 @@ popd
 %doc %{_pkgdocdir}
 
 %changelog
+* Tue Mar 30 2026 Parag Nemade <pnemade AT redhat DOT com> - 20230101-15
+- Resolves: RHEL-138129
+  CVE-2025-15270 SFD File Parsing Remote Code Execution Vulnerability
+
 * Tue Jan 27 2026 Parag Nemade <pnemade AT redhat DOT com> - 20230101-14
 - Resolves: RHEL-138159
   CVE-2025-15279 GUtils BMP File Parsing Heap-based Buffer Overflow
