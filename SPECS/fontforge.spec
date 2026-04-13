@@ -3,7 +3,7 @@
 
 Name:           fontforge
 Version:        20200314
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        Outline and bitmap font editor
 
 License:        GPLv3+
@@ -17,6 +17,21 @@ Patch1:         fontforge-20200314-minor-backward-compatible-sphinx-changes.patc
 # https://github.com/fontforge/fontforge/pull/5367
 # Fixes CVE-2024-25081 and CVE-2024-25082
 Patch2:         Fix_Splinefont_shell_invocation.patch
+# CVE-2025-15279 https://github.com/fontforge/fontforge/pull/5720
+# https://sourceforge.net/p/fontforge/patches/32/
+Patch3:         https://patch-diff.githubusercontent.com/raw/fontforge/fontforge/pull/5720.patch
+# CVE-2025-15275 https://github.com/fontforge/fontforge/pull/5721
+# https://sourceforge.net/p/fontforge/patches/37/
+Patch4:          https://patch-diff.githubusercontent.com/raw/fontforge/fontforge/pull/5721.patch
+# CVE-2025-15269 https://github.com/fontforge/fontforge/pull/5722
+# https://sourceforge.net/p/fontforge/patches/40/
+Patch5:         https://patch-diff.githubusercontent.com/raw/fontforge/fontforge/pull/5722.patch
+# CVE-2025-15279 https://github.com/fontforge/fontforge/pull/5723
+# https://sourceforge.net/p/fontforge/patches/32/
+Patch6:         https://patch-diff.githubusercontent.com/raw/fontforge/fontforge/pull/5723.patch
+# CVE-2025-15270 https://github.com/fontforge/fontforge/pull/5743
+# https://sourceforge.net/p/fontforge/patches/41/
+Patch7:         https://patch-diff.githubusercontent.com/raw/fontforge/fontforge/pull/5743.patch
 
 Requires:       xdg-utils
 Requires:       autotrace
@@ -75,6 +90,11 @@ This package contains documentation files for %{name}.
 %patch -P 0 -p1
 %patch -P 1 -p1
 %patch -P 2 -p1
+%patch -P 3 -p1
+%patch -P 4 -p1
+%patch -P 5 -p1
+%patch -P 6 -p1
+%patch -P 7 -p1
 
 # Remove tests that requires Internet access
 sed -i '45d;83d;101d;102d;114d;115d;125d' tests/CMakeLists.txt
@@ -142,6 +162,16 @@ popd
 %doc %{_pkgdocdir}
 
 %changelog
+* Wed Mar 25 2026 Parag Nemade <pnemade AT redhat DOT com> - 20200314-7
+- Resolves: RHEL-138168
+  CVE-2025-15270 SFD File Parsing Remote Code Execution Vulnerability
+- Resolves: RHEL-138174
+  CVE-2025-15279 GUtils BMP File Parsing Heap-based Buffer Overflow
+- Resolves: RHEL-138190
+  CVE-2025-15275 SFD File Parsing Heap-based Buffer Overflow
+- Resolves: RHEL-138140	
+  CVE-2025-15269 SFD File Parsing Use-After-Free
+
 * Thu Apr 04 2024 Parag Nemade <pnemade AT redhat DOT com> - 20200314-6
 - Resolves: RHEL-26715 - fontforge: various flaws
   (CVE-2024-25081 and CVE-2024-25082)
