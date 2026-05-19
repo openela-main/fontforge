@@ -141,8 +141,8 @@ popd
 %doc %{_pkgdocdir}
 
 %changelog
-* Tue Mar 30 2026 Parag Nemade <pnemade AT redhat DOT com> - 20230101-15
-- Resolves: RHEL-138129
+* Wed Mar 18 2026 Parag Nemade <pnemade AT redhat DOT com> - 20230101-15
+- Resolves: RHEL-138134
   CVE-2025-15270 SFD File Parsing Remote Code Execution Vulnerability
 
 * Tue Jan 27 2026 Parag Nemade <pnemade AT redhat DOT com> - 20230101-14
