@@ -149,7 +149,7 @@ popd
 
 %changelog
 * Tue Mar 24 2026 Parag Nemade <pnemade AT redhat DOT com> - 20201107-8
-- Resolves: RHEL-138245
+- Resolves: RHEL-138222
   CVE-2025-15270 SFD File Parsing Remote Code Execution Vulnerability
 
 * Tue Jan 27 2026 Parag Nemade <pnemade AT redhat DOT com> - 20201107-7
